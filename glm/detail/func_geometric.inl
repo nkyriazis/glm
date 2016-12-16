@@ -15,7 +15,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static T call(vecType<T, P> const & v)
 		{
-			return sqrt(dot(v, v));
+			return glm::sqrt(dot(v, v));
 		}
 	};
 
@@ -24,7 +24,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static T call(vecType<T, P> const & p0, vecType<T, P> const & p1)
 		{
-			return length(p1 - p0);
+			return glm::length(p1 - p0);
 		}
 	};
 

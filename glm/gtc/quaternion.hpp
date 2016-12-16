@@ -38,33 +38,33 @@ namespace glm
 		typedef T value_type;
 
 		// -- Data --
-
-#		if GLM_HAS_ALIGNED_TYPE
-#			if GLM_COMPILER & GLM_COMPILER_GCC
-#				pragma GCC diagnostic push
-#				pragma GCC diagnostic ignored "-Wpedantic"
-#			endif
-#			if GLM_COMPILER & GLM_COMPILER_CLANG
-#				pragma clang diagnostic push
-#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
-#				pragma clang diagnostic ignored "-Wnested-anon-types"
-#			endif
-		
-			union
-			{
-				struct { T x, y, z, w;};
-				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<P>::value>::type data;
-			};
-		
-#			if GLM_COMPILER & GLM_COMPILER_CLANG
-#				pragma clang diagnostic pop
-#			endif
-#			if GLM_COMPILER & GLM_COMPILER_GCC
-#				pragma GCC diagnostic pop
-#			endif
-#		else
-			T x, y, z, w;
-#		endif
+		struct { T x, y, z, w; };
+//#		if GLM_HAS_ALIGNED_TYPE
+//#			if GLM_COMPILER & GLM_COMPILER_GCC
+//#				pragma GCC diagnostic push
+//#				pragma GCC diagnostic ignored "-Wpedantic"
+//#			endif
+//#			if GLM_COMPILER & GLM_COMPILER_CLANG
+//#				pragma clang diagnostic push
+//#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+//#				pragma clang diagnostic ignored "-Wnested-anon-types"
+//#			endif
+//		
+//			union
+//			{
+//				struct { T x, y, z, w;};
+//				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<P>::value>::type data;
+//			};
+//		
+//#			if GLM_COMPILER & GLM_COMPILER_CLANG
+//#				pragma clang diagnostic pop
+//#			endif
+//#			if GLM_COMPILER & GLM_COMPILER_GCC
+//#				pragma GCC diagnostic pop
+//#			endif
+//#		else
+//			T x, y, z, w;
+//#		endif
 
 		// -- Component accesses --
 

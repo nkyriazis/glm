@@ -25,52 +25,53 @@ namespace glm
 		typedef tvec3<bool, P> bool_type;
 
 		// -- Data --
+		T x, y, z;
 
-#		if GLM_HAS_ALIGNED_TYPE
-#			if GLM_COMPILER & GLM_COMPILER_GCC
-#				pragma GCC diagnostic push
-#				pragma GCC diagnostic ignored "-Wpedantic"
-#			endif
-#			if GLM_COMPILER & GLM_COMPILER_CLANG
-#				pragma clang diagnostic push
-#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
-#				pragma clang diagnostic ignored "-Wnested-anon-types"
-#			endif
-
-			union
-			{
-				struct{ T x, y, z; };
-				struct{ T r, g, b; };
-				struct{ T s, t, p; };
-
-#				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, x, y, z)
-					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, r, g, b)
-					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, s, t, p)
-					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, x, y, z)
-					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, r, g, b)
-					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, s, t, p)
-					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, x, y, z)
-					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, r, g, b)
-					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, s, t, p)
-#				endif//GLM_SWIZZLE
-			};
-		
-#			if GLM_COMPILER & GLM_COMPILER_CLANG
-#				pragma clang diagnostic pop
-#			endif
-#			if GLM_COMPILER & GLM_COMPILER_GCC
-#				pragma GCC diagnostic pop
-#			endif
-#		else
-			union { T x, r, s; };
-			union { T y, g, t; };
-			union { T z, b, p; };
-
-#			if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-				GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, tvec3, tvec2, tvec3, tvec4)
-#			endif//GLM_SWIZZLE
-#		endif//GLM_LANG
+//#		if GLM_HAS_ALIGNED_TYPE
+//#			if GLM_COMPILER & GLM_COMPILER_GCC
+//#				pragma GCC diagnostic push
+//#				pragma GCC diagnostic ignored "-Wpedantic"
+//#			endif
+//#			if GLM_COMPILER & GLM_COMPILER_CLANG
+//#				pragma clang diagnostic push
+//#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+//#				pragma clang diagnostic ignored "-Wnested-anon-types"
+//#			endif
+//
+//			union
+//			{
+//				struct{ T x, y, z; };
+//				struct{ T r, g, b; };
+//				struct{ T s, t, p; };
+//
+//#				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+//					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, x, y, z)
+//					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, r, g, b)
+//					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, s, t, p)
+//					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, x, y, z)
+//					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, r, g, b)
+//					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, s, t, p)
+//					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, x, y, z)
+//					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, r, g, b)
+//					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, s, t, p)
+//#				endif//GLM_SWIZZLE
+//			};
+//		
+//#			if GLM_COMPILER & GLM_COMPILER_CLANG
+//#				pragma clang diagnostic pop
+//#			endif
+//#			if GLM_COMPILER & GLM_COMPILER_GCC
+//#				pragma GCC diagnostic pop
+//#			endif
+//#		else
+//			union { T x, r, s; };
+//			union { T y, g, t; };
+//			union { T z, b, p; };
+//
+//#			if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+//				GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, tvec3, tvec2, tvec3, tvec4)
+//#			endif//GLM_SWIZZLE
+//#		endif//GLM_LANG
 
 		// -- Component accesses --
 

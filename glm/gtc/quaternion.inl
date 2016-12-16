@@ -380,7 +380,7 @@ namespace detail
 	{
 		T len = length(q);
 		if(len <= T(0)) // Problem
-			return tquat<T, P>(1, 0, 0, 0);
+			return tquat<T, P>(T(1), T(0), T(0), T(0));
 		T oneOverLen = T(1) / len;
 		return tquat<T, P>(q.w * oneOverLen, q.x * oneOverLen, q.y * oneOverLen, q.z * oneOverLen);
 	}
